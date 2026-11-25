@@ -1,5 +1,4 @@
 import ProjectForm from "@/components/ProjectForm";
-import VideoTeamSection from "@/components/VideoTeamSection";
 import YouTubeThumbnail from "@/components/YouTubeThumbnail";
 import { JERISTOTLE_LOGO_URL as logo } from "@shared/brandAssets";
 import {
@@ -693,7 +692,6 @@ export default function Home() {
           </div>
         </section>
 
-        <VideoTeamSection />
 
         <section className="py-24 sm:py-32" id="approach">
           <div className="container">

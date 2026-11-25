@@ -33,8 +33,8 @@ export const AWARD_RIBBON_IMAGES = {
 export const selectedWork: SelectedWorkProject[] = [
   {
     number: "01",
-    videoId: "gHnK2OiJlnE",
-    videoTitle: "2024 Installation Gala: Oceans '24 - Executive Board",
+    videoId: "d70Vc2WqH4U",
+    videoTitle: "Oceans '24: The Executive Team",
     project: "2024 Gala",
     client: "United Corpus Christi Chamber of Commerce",
     facts: ["Oceans '24: The Executive Team", "Cinematic event storytelling"],
