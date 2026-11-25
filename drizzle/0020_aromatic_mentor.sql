@@ -1,0 +1,1 @@
+ALTER TABLE `outreachAlertMonitors` ADD `campaignBaselinesJson` text;

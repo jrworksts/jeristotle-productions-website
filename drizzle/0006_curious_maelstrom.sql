@@ -1,0 +1,2 @@
+ALTER TABLE `chamberOutreachProspects` ADD `unsubscribeToken` varchar(64) NOT NULL;--> statement-breakpoint
+ALTER TABLE `chamberOutreachProspects` ADD CONSTRAINT `chamberOutreachProspects_unsubscribeToken_unique` UNIQUE(`unsubscribeToken`);

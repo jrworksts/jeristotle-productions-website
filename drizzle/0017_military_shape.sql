@@ -1,0 +1,1 @@
+ALTER TABLE `training_outreach_prospects` ADD `emailRecipientType` enum('named','general','unknown') DEFAULT 'unknown' NOT NULL;

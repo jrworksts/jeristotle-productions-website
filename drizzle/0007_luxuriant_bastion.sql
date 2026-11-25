@@ -1,0 +1,1 @@
+ALTER TABLE `chamberOutreachProspects` ADD `contactConfidence` varchar(30) DEFAULT 'directory' NOT NULL;

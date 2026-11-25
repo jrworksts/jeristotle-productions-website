@@ -1,0 +1,2 @@
+ALTER TABLE `chamberOutreachCampaigns` MODIFY COLUMN `dailyNewLimit` int NOT NULL DEFAULT 10;--> statement-breakpoint
+ALTER TABLE `creditUnionCampaigns` MODIFY COLUMN `dailyNewLimit` int NOT NULL DEFAULT 10;

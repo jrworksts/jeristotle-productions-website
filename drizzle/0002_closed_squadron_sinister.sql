@@ -1,0 +1,1 @@
+ALTER TABLE `projectInquiries` ADD `promotionGoal` varchar(140);

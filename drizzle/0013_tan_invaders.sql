@@ -1,0 +1,1 @@
+ALTER TABLE `brandVideoCampaigns` ADD `autoApproveQualifiedProspects` int DEFAULT 0 NOT NULL;

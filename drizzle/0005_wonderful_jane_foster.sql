@@ -1,0 +1,121 @@
+CREATE TABLE `chamberOutreachCampaigns` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`slug` varchar(100) NOT NULL,
+	`name` varchar(180) NOT NULL,
+	`status` enum('draft','review','paused','active','completed') NOT NULL DEFAULT 'draft',
+	`senderName` varchar(140) NOT NULL,
+	`senderEmail` varchar(320) NOT NULL,
+	`dailyNewLimit` int NOT NULL DEFAULT 5,
+	`followupDelayDays` int NOT NULL DEFAULT 3,
+	`maxFollowups` int NOT NULL DEFAULT 3,
+	`sendHourLocal` int NOT NULL DEFAULT 9,
+	`timezone` varchar(80) NOT NULL DEFAULT 'America/Chicago',
+	`physicalPostalAddress` text,
+	`dailyTaskUid` varchar(65),
+	`recapTaskUid` varchar(65),
+	`approvedAt` timestamp,
+	`activatedAt` timestamp,
+	`lastRunAt` timestamp,
+	`lastReplyCheckAt` timestamp,
+	`notes` text,
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	`updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
+	CONSTRAINT `chamberOutreachCampaigns_id` PRIMARY KEY(`id`),
+	CONSTRAINT `chamberOutreachCampaigns_slug_unique` UNIQUE(`slug`),
+	CONSTRAINT `chamberOutreachCampaigns_dailyTaskUid_unique` UNIQUE(`dailyTaskUid`),
+	CONSTRAINT `chamberOutreachCampaigns_recapTaskUid_unique` UNIQUE(`recapTaskUid`)
+);
+--> statement-breakpoint
+CREATE TABLE `chamberOutreachDailyRuns` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`campaignId` int NOT NULL,
+	`runDate` varchar(10) NOT NULL,
+	`status` enum('started','complete','skipped','failed') NOT NULL DEFAULT 'started',
+	`newSent` int NOT NULL DEFAULT 0,
+	`followupsSent` int NOT NULL DEFAULT 0,
+	`repliesDetected` int NOT NULL DEFAULT 0,
+	`unsubscribes` int NOT NULL DEFAULT 0,
+	`bounces` int NOT NULL DEFAULT 0,
+	`meetings` int NOT NULL DEFAULT 0,
+	`errorCount` int NOT NULL DEFAULT 0,
+	`summary` text,
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	`updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
+	CONSTRAINT `chamberOutreachDailyRuns_id` PRIMARY KEY(`id`),
+	CONSTRAINT `outreachCampaignRunDateUnique` UNIQUE(`campaignId`,`runDate`)
+);
+--> statement-breakpoint
+CREATE TABLE `chamberOutreachEvents` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`campaignId` int NOT NULL,
+	`prospectId` int,
+	`messageId` int,
+	`eventType` varchar(80) NOT NULL,
+	`detail` text,
+	`occurredAt` timestamp NOT NULL DEFAULT (now()),
+	CONSTRAINT `chamberOutreachEvents_id` PRIMARY KEY(`id`)
+);
+--> statement-breakpoint
+CREATE TABLE `chamberOutreachMessages` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`campaignId` int NOT NULL,
+	`prospectId` int NOT NULL,
+	`sequenceStep` int NOT NULL,
+	`kind` enum('initial','followup_one','followup_two','followup_three') NOT NULL,
+	`status` enum('draft','approved','scheduled','sent','skipped','failed') NOT NULL DEFAULT 'draft',
+	`subject` varchar(240) NOT NULL,
+	`htmlBody` text NOT NULL,
+	`textBody` text NOT NULL,
+	`scheduledAt` timestamp,
+	`sentAt` timestamp,
+	`providerMessageId` varchar(255),
+	`error` text,
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	`updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
+	CONSTRAINT `chamberOutreachMessages_id` PRIMARY KEY(`id`),
+	CONSTRAINT `outreachProspectStepUnique` UNIQUE(`prospectId`,`sequenceStep`)
+);
+--> statement-breakpoint
+CREATE TABLE `chamberOutreachProspects` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`campaignId` int NOT NULL,
+	`businessName` varchar(220) NOT NULL,
+	`website` varchar(500),
+	`email` varchar(320) NOT NULL,
+	`phone` varchar(100),
+	`category` varchar(160) NOT NULL,
+	`contactName` text,
+	`contactFirstName` varchar(100),
+	`sourceUrl` varchar(500) NOT NULL,
+	`fitScore` int NOT NULL DEFAULT 50,
+	`status` enum('queued','researching','review','approved','in_sequence','replied','unsubscribed','bounced','meeting','not_fit','complete') NOT NULL DEFAULT 'queued',
+	`researchStatus` enum('unresearched','approved','failed') NOT NULL DEFAULT 'unresearched',
+	`personalizedSubject` varchar(240),
+	`personalizedOpening` text,
+	`questionAboutGoals` text,
+	`personalizedHelpAngle` text,
+	`researchSummary` text,
+	`researchSources` text,
+	`claimsToAvoid` text,
+	`manualNotes` text,
+	`firstSentAt` timestamp,
+	`lastSentAt` timestamp,
+	`nextFollowupAt` timestamp,
+	`repliedAt` timestamp,
+	`unsubscribedAt` timestamp,
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	`updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
+	CONSTRAINT `chamberOutreachProspects_id` PRIMARY KEY(`id`),
+	CONSTRAINT `outreachCampaignEmailUnique` UNIQUE(`campaignId`,`email`)
+);
+--> statement-breakpoint
+CREATE TABLE `chamberOutreachSuppressions` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`email` varchar(320) NOT NULL,
+	`reason` enum('unsubscribed','replied','bounced','manual') NOT NULL,
+	`source` varchar(160) NOT NULL,
+	`notes` text,
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	CONSTRAINT `chamberOutreachSuppressions_id` PRIMARY KEY(`id`),
+	CONSTRAINT `outreachSuppressionEmailUnique` UNIQUE(`email`)
+);
