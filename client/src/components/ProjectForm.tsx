@@ -1,4 +1,3 @@
-import { trpc } from "@/lib/trpc";
 import { continueToConsultationCalendar } from "@shared/consultation";
 import { ArrowUpRight, Check, Loader2 } from "lucide-react";
 import { FormEvent, useState } from "react";
@@ -38,17 +37,30 @@ const fieldClass =
 export default function ProjectForm() {
   const [form, setForm] = useState<FormState>(initialForm);
   const [submitted, setSubmitted] = useState(false);
-  const submitInquiry = trpc.inquiries.submit.useMutation({
-    onSuccess: () => {
+  const [pending, setPending] = useState(false);
+  const submitInquiry = { isPending: pending };
+
+  const sendInquiry = async (payload: Record<string, string | undefined>) => {
+    setPending(true);
+    try {
+      const response = await fetch("/api/inquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!response.ok) throw new Error(`Inquiry failed: ${response.status}`);
       setSubmitted(true);
       setForm(initialForm);
       continueToConsultationCalendar();
-    },
-    onError: () =>
+    } catch (error) {
+      console.error("[Inquiry]", error);
       toast.error(
         "We couldn't send that yet. Please check your details and try again."
-      ),
-  });
+      );
+    } finally {
+      setPending(false);
+    }
+  };
 
   const update = (field: keyof FormState, value: string) => {
     setForm(current => ({ ...current, [field]: value }));
@@ -56,7 +68,7 @@ export default function ProjectForm() {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    submitInquiry.mutate({
+    void sendInquiry({
       ...form,
       phone: form.phone || undefined,
       discoverySource: form.discoverySource || undefined,
