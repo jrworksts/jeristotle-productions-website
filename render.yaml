@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: jeristotle-productions
+    runtime: node
+    plan: starter
+    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm build:selfhost
+    startCommand: node dist/selfhost.cjs
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: HOST
+        value: 0.0.0.0
+      - key: NODE_ENV
+        value: production
+      - key: SELF_HOSTED_DATA_DIR
+        value: /var/data/jeristotle
+      - key: GMAIL_APP_PASSWORD
+        sync: false
+    disk:
+      name: leads
+      mountPath: /var/data
+      sizeGB: 1
