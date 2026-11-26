@@ -1,6 +1,7 @@
 // Cloudflare Pages Function: POST /api/inquiry
-// Validates a consultation brief and forwards it to the HighLevel inbound
-// webhook set in the HIGHLEVEL_WEBHOOK_URL environment variable.
+// Validates a consultation brief and forwards it to the Google Apps Script
+// lead mailer (scripts/lead-mailer.gs), which emails it from Gmail.
+// Env: LEAD_MAILER_URL (Apps Script web app URL), LEAD_SECRET (shared secret).
 
 const LIMITS = {
   fullName: [2, 120],
@@ -52,15 +53,15 @@ export async function onRequestPost({ request, env }) {
     return json(400, { ok: false, error: "Invalid email" });
   }
 
-  const webhook = env.HIGHLEVEL_WEBHOOK_URL;
-  if (!webhook) {
-    console.error("[inquiry] HIGHLEVEL_WEBHOOK_URL is not set");
+  const webhook = env.LEAD_MAILER_URL;
+  if (!webhook || !env.LEAD_SECRET) {
+    console.error("[inquiry] LEAD_MAILER_URL or LEAD_SECRET is not set");
     return json(503, { ok: false, error: "Inquiry delivery is not configured" });
   }
 
   const [firstName, ...rest] = data.fullName.split(/\s+/);
   const payload = {
-    // Standard contact fields HighLevel maps automatically
+    secret: env.LEAD_SECRET,
     first_name: firstName,
     last_name: rest.join(" "),
     full_name: data.fullName,
@@ -68,7 +69,6 @@ export async function onRequestPost({ request, env }) {
     phone: data.phone || "",
     company_name: data.businessName,
     source: "jeristotleproductions.com consultation form",
-    // Project brief (map these to custom fields in the HighLevel workflow)
     project_type: data.projectType,
     promotion_goal: data.promotionGoal,
     investment: data.investment,
@@ -83,8 +83,14 @@ export async function onRequestPost({ request, env }) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
   });
-  if (!response.ok) {
-    console.error("[inquiry] HighLevel webhook failed", response.status);
+  let result = null;
+  try {
+    result = await response.json();
+  } catch {
+    // Apps Script returned HTML (e.g. an error page)
+  }
+  if (!response.ok || !result || result.ok !== true) {
+    console.error("[inquiry] Lead mailer failed", response.status, result);
     return json(502, { ok: false, error: "Delivery failed" });
   }
   return json(200, { ok: true });

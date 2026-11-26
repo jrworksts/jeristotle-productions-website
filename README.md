@@ -27,6 +27,6 @@ The public site is a static Vite build plus one Pages Function (`functions/api/i
 
 - Build command: `pnpm install --frozen-lockfile && pnpm exec vite build`
 - Build output directory: `dist/public`
-- Environment variables: `NODE_VERSION=22`, `HIGHLEVEL_WEBHOOK_URL=<HighLevel inbound webhook URL>` (mark it secret)
+- Environment variables: `NODE_VERSION=22`, `LEAD_MAILER_URL` (Apps Script web app URL), `LEAD_SECRET` (random shared secret; mark both secret)
 
-Each inquiry is validated and POSTed to the HighLevel webhook as JSON (`first_name`, `last_name`, `email`, `phone`, `company_name`, `project_type`, `promotion_goal`, `investment`, `timeline`, `goals`, `discovery_source`). Map those fields in the HighLevel workflow that owns the webhook. After a successful send, the visitor goes to the consultation calendar.
+Each inquiry is validated, then POSTed to a Google Apps Script web app (`scripts/lead-mailer.gs`) that emails it to jeremy@jeristotleproductions.com from Gmail, with the prospect as Reply-To. Setup steps are at the top of that file. After a successful send, the visitor goes to the consultation calendar.
