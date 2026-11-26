@@ -33,7 +33,7 @@ const initialForm: FormState = {
 };
 
 const fieldClass =
-  "w-full border-0 border-b border-white/20 bg-transparent px-0 py-3 text-[15px] text-white outline-none transition-colors placeholder:text-white/35 focus:border-[#ffb627] focus:ring-0";
+  "w-full border-0 border-b border-black/18 bg-transparent px-0 py-3 text-[15px] text-[#0b0b0b] outline-none transition-colors placeholder:text-black/40 focus:border-[#b87a00] focus:ring-0";
 
 export default function ProjectForm() {
   const [form, setForm] = useState<FormState>(initialForm);
@@ -65,24 +65,24 @@ export default function ProjectForm() {
 
   if (submitted) {
     return (
-      <div className="flex min-h-[520px] flex-col justify-between rounded-sm border border-[#ffb627]/35 bg-[#0b0b0b] p-7 sm:p-10">
+      <div className="flex min-h-[520px] flex-col justify-between rounded-sm border border-[#ffb627]/35 bg-white p-7 sm:p-10">
         <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#ffb627] text-black">
           <Check size={22} strokeWidth={2.5} />
         </div>
         <div>
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.26em] text-[#ffb627]">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.26em] text-[#8a5d00]">
             Inquiry received
           </p>
-          <h3 className="font-display text-5xl leading-[0.9] text-white sm:text-6xl">
+          <h3 className="font-display text-5xl leading-[0.9] text-[#0b0b0b] sm:text-6xl">
             Your story is in motion.
           </h3>
-          <p className="mt-6 max-w-md text-base leading-7 text-white/60">
+          <p className="mt-6 max-w-md text-base leading-7 text-black/72">
             We will review your goals, timeline, and project fit, then follow up
             with the clearest practical next step.
           </p>
         </div>
         <button
-          className="w-fit text-xs font-bold uppercase tracking-[0.2em] text-white underline decoration-[#ffb627] underline-offset-8"
+          className="w-fit text-xs font-bold uppercase tracking-[0.2em] text-[#0b0b0b] underline decoration-[#ffb627] underline-offset-8"
           onClick={() => setSubmitted(false)}
           type="button"
         >
@@ -316,15 +316,15 @@ export default function ProjectForm() {
           />
         )}
       </button>
-      <p className="text-xs leading-5 text-white/35">
+      <p className="text-xs leading-5 text-black/47">
         We’ll save your brief, email it to our team, then take you to the
         calendar to choose a consultation time.
       </p>
-      <p className="text-xs leading-6 text-white/60">
+      <p className="text-xs leading-6 text-black/72">
         We use your details to respond to this request. See our{" "}
         <a
           href="/privacy-policy"
-          className="text-[#ffb627] underline underline-offset-4"
+          className="text-[#8a5d00] underline underline-offset-4"
         >
           Privacy Policy
         </a>

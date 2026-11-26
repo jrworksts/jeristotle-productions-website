@@ -162,7 +162,7 @@ const faqs = [
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mb-7 flex items-center gap-3 text-[11px] font-extrabold uppercase tracking-[0.28em] text-[#ffb627]">
+    <div className="mb-7 flex items-center gap-3 text-[11px] font-extrabold uppercase tracking-[0.28em] text-[#8a5d00]">
       <span className="h-px w-8 bg-[#ffb627]" />
       {children}
     </div>
@@ -176,8 +176,8 @@ export default function Home() {
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#050505] text-[#f4f0e8]">
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#050505]/80 backdrop-blur-xl">
+    <div className="min-h-screen overflow-x-hidden bg-[#fbf9f4] text-[#0b0b0b]">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-black/10 bg-[#fbf9f4]/85 backdrop-blur-xl">
         <div className="container flex h-[76px] items-center justify-between">
           <a
             aria-label="Jeristotle Productions home"
@@ -193,7 +193,7 @@ export default function Home() {
               <span className="block text-[13px] font-black uppercase tracking-[0.16em]">
                 Jeristotle
               </span>
-              <span className="mt-1 block text-[8px] font-bold uppercase tracking-[0.42em] text-[#ffb627]">
+              <span className="mt-1 block text-[8px] font-bold uppercase tracking-[0.42em] text-[#8a5d00]">
                 Productions
               </span>
             </div>
@@ -221,7 +221,7 @@ export default function Home() {
           </nav>
 
           <a
-            className="group hidden items-center gap-3 border border-[#ffb627] px-5 py-3 text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#ffb627] transition-colors hover:bg-[#ffb627] hover:text-black sm:flex"
+            className="group hidden items-center gap-3 border border-black px-5 py-3 text-[11px] font-extrabold uppercase tracking-[0.2em] text-black transition-colors hover:border-[#ffb627] hover:bg-[#ffb627] hover:text-black sm:flex"
             href="#project"
           >
             Schedule a consultation
@@ -234,7 +234,7 @@ export default function Home() {
           <button
             aria-expanded={menuOpen}
             aria-label="Toggle navigation"
-            className="flex h-11 w-11 items-center justify-center border border-white/15 min-[1440px]:hidden"
+            className="flex h-11 w-11 items-center justify-center border border-black/15 min-[1440px]:hidden"
             onClick={() => setMenuOpen(open => !open)}
             type="button"
           >
@@ -247,7 +247,7 @@ export default function Home() {
             <motion.nav
               animate={{ opacity: 1, y: 0 }}
               aria-label="Mobile navigation"
-              className="border-t border-white/10 bg-[#050505] px-6 py-7 min-[1440px]:hidden"
+              className="border-t border-black/10 bg-[#fbf9f4] px-6 py-7 min-[1440px]:hidden"
               exit={{ opacity: 0, y: -8 }}
               initial={{ opacity: 0, y: -8 }}
             >
@@ -260,7 +260,7 @@ export default function Home() {
                 ["Schedule a consultation", "#project"],
               ].map(([label, href]) => (
                 <a
-                  className="flex items-center justify-between border-b border-white/10 py-4 text-sm font-bold uppercase tracking-[0.14em]"
+                  className="flex items-center justify-between border-b border-black/10 py-4 text-sm font-bold uppercase tracking-[0.14em]"
                   href={href}
                   key={href}
                   onClick={closeMenu}
@@ -284,9 +284,9 @@ export default function Home() {
             className="absolute inset-0 h-full w-full object-cover object-[62%_center]"
             src={hero}
           />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(3,3,3,.98)_0%,rgba(3,3,3,.88)_31%,rgba(3,3,3,.28)_67%,rgba(3,3,3,.55)_100%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,3,3,.28),rgba(3,3,3,0)_42%,rgba(3,3,3,.96)_100%)]" />
-          <div className="grain absolute inset-0 opacity-25" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(251,249,244,.98)_0%,rgba(251,249,244,.93)_36%,rgba(251,249,244,.35)_66%,rgba(251,249,244,.05)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(251,249,244,.55),rgba(251,249,244,0)_30%,rgba(251,249,244,0)_60%,rgba(251,249,244,.97)_100%)]" />
+          <div className="grain absolute inset-0 opacity-10" />
 
           <div className="container relative z-10 pb-10 sm:pb-14">
             <motion.div
@@ -295,30 +295,30 @@ export default function Home() {
               initial={{ opacity: 0, y: 24 }}
               transition={{ duration: 0.7 }}
             >
-              <div className="mb-7 flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[0.28em] text-[#ffb627] sm:text-xs">
-                <span className="h-2 w-2 rounded-full bg-[#ffb627] shadow-[0_0_18px_#ffb627]" />
+              <div className="mb-7 flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[0.28em] text-[#8a5d00] sm:text-xs">
+                <span className="h-2 w-2 rounded-full bg-[#ffb627] shadow-[0_0_14px_rgba(255,182,39,.8)]" />
                 Corpus Christi, Texas
               </div>
-              <h1 className="max-w-[980px] font-display text-[clamp(4.4rem,10.7vw,10rem)] uppercase leading-[0.76] tracking-[-0.075em] text-white">
+              <h1 className="max-w-[980px] font-display text-[clamp(4.4rem,10.7vw,10rem)] uppercase leading-[0.76] tracking-[-0.075em] text-[#0b0b0b]">
                 Movie-level
-                <span className="block text-[#ffb627]">content</span>
-                <span className="block text-[#ffb627]">production</span>
+                <span className="block text-[#b87a00]">content</span>
+                <span className="block text-[#b87a00]">production</span>
                 <span className="block text-[.7em]">
                   for
-                  <em className="font-serif normal-case tracking-[-0.045em] text-white/90">
+                  <em className="font-serif normal-case tracking-[-0.045em] text-black/72">
                     {" small businesses."}
                   </em>
                 </span>
               </h1>
               <div className="mt-9 flex max-w-3xl flex-col gap-7 border-l border-[#ffb627]/60 pl-5 sm:mt-12 sm:flex-row sm:items-end sm:justify-between sm:pl-7">
-                <p className="max-w-xl text-base leading-7 text-white/68 sm:text-lg">
+                <p className="max-w-xl text-base leading-7 text-black/72 sm:text-lg">
                   We help small businesses tell their story online through
                   commercials, brand stories, social content, and web
                   development. Then create lead generation systems that grow
                   your business on autopilot.
                 </p>
                 <a
-                  className="group flex shrink-0 items-center gap-3 text-xs font-extrabold uppercase tracking-[0.19em] text-white"
+                  className="group flex shrink-0 items-center gap-3 text-xs font-extrabold uppercase tracking-[0.19em] text-[#0b0b0b]"
                   href="#project"
                 >
                   Schedule a consultation
@@ -329,17 +329,17 @@ export default function Home() {
               </div>
             </motion.div>
 
-            <div className="mt-16 grid border-y border-white/15 sm:grid-cols-3">
+            <div className="mt-16 grid border-y border-black/15 sm:grid-cols-3">
               {[
                 "Built around your objective",
                 "Movie-level creative",
                 "Content to customer",
               ].map((item, index) => (
                 <div
-                  className={`flex items-center gap-4 py-5 text-[10px] font-bold uppercase tracking-[0.18em] text-white/65 ${index > 0 ? "sm:border-l sm:border-white/15 sm:px-6" : ""}`}
+                  className={`flex items-center gap-4 py-5 text-[10px] font-bold uppercase tracking-[0.18em] text-black/72 ${index > 0 ? "sm:border-l sm:border-black/15 sm:px-6" : ""}`}
                   key={item}
                 >
-                  <span className="text-[#ffb627]">0{index + 1}</span>
+                  <span className="text-[#8a5d00]">0{index + 1}</span>
                   {item}
                 </div>
               ))}
@@ -348,7 +348,7 @@ export default function Home() {
 
           <a
             aria-label="Scroll to introduction"
-            className="absolute bottom-10 right-7 hidden h-20 w-20 items-center justify-center rounded-full border border-white/20 text-white/70 transition-colors hover:border-[#ffb627] hover:text-[#ffb627] xl:flex"
+            className="absolute bottom-10 right-7 hidden h-20 w-20 items-center justify-center rounded-full border border-black/15 text-black/72 transition-colors hover:border-[#8a5d00] hover:text-[#8a5d00] xl:flex"
             href="#intro"
           >
             <ArrowDownRight size={24} />
@@ -395,7 +395,7 @@ export default function Home() {
         </section>
 
         <section
-          className="border-t border-white/10 py-24 sm:py-32"
+          className="border-t border-black/10 py-24 sm:py-32"
           id="capabilities"
         >
           <div className="container">
@@ -405,35 +405,35 @@ export default function Home() {
                 <h2 className="jp-section-heading font-display">
                   Your Full Service
                   <br />
-                  <span className="text-[#ffb627]">Marketing Team</span>
+                  <span className="text-[#b87a00]">Marketing Team</span>
                 </h2>
               </div>
-              <p className="max-w-lg text-base leading-7 text-white/55 md:ml-auto">
+              <p className="max-w-lg text-base leading-7 text-black/67 md:ml-auto">
                 Jeristotle connects strategy, creative, production, promotion,
                 lead capture, follow-up, and reporting so the work does not stop
                 at delivery.
               </p>
             </div>
 
-            <div className="grid border-l border-t border-white/15 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid border-l border-t border-black/15 md:grid-cols-2 lg:grid-cols-3">
               {services.map(service => (
                 <article
-                  className="group min-h-[300px] border-b border-r border-white/15 p-7 transition-colors hover:bg-[#ffb627] hover:text-black sm:p-9"
+                  className="group min-h-[300px] border-b border-r border-black/15 p-7 transition-colors hover:bg-[#ffb627] hover:text-black sm:p-9"
                   key={service.number}
                 >
                   <div className="flex items-start justify-between">
-                    <span className="font-mono text-xs text-[#ffb627] group-hover:text-black">
+                    <span className="font-mono text-xs text-[#8a5d00] group-hover:text-black">
                       {service.number}
                     </span>
                     <ArrowUpRight
-                      className="text-white/25 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-black"
+                      className="text-black/37 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-black"
                       size={22}
                     />
                   </div>
                   <h3 className="mt-20 text-2xl font-bold tracking-[-0.03em] sm:text-3xl">
                     {service.title}
                   </h3>
-                  <p className="mt-4 text-sm leading-6 text-white/48 group-hover:text-black/65">
+                  <p className="mt-4 text-sm leading-6 text-black/60 group-hover:text-black/65">
                     {service.copy}
                   </p>
                 </article>
@@ -508,24 +508,24 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-[#080808] py-24 sm:py-32" id="work">
+        <section className="bg-white py-24 sm:py-32" id="work">
           <div className="container">
-            <div className="mb-14 grid gap-8 border-b border-white/15 pb-12 lg:grid-cols-[1fr_.7fr] lg:items-end">
+            <div className="mb-14 grid gap-8 border-b border-black/15 pb-12 lg:grid-cols-[1fr_.7fr] lg:items-end">
               <div>
                 <SectionLabel>Selected work</SectionLabel>
                 <h2 className="jp-section-heading max-w-4xl font-display">
                   See what movie-level looks like.
                 </h2>
               </div>
-              <p className="max-w-lg text-base leading-7 text-white/52 lg:ml-auto lg:pb-2">
+              <p className="max-w-lg text-base leading-7 text-black/64 lg:ml-auto lg:pb-2">
                 Real productions for local brands, organizations, and cultural
                 moments. Press play to see the craft, then explore the objective
                 and project scope behind each piece.
               </p>
             </div>
 
-            <div className="mb-10 flex flex-col gap-6 border-l-2 border-[#ffb627] bg-[#111] p-6 sm:flex-row sm:items-center sm:p-8">
-              <div className="w-[184px] shrink-0 bg-[#f4f0e8] p-6">
+            <div className="mb-10 flex flex-col gap-6 border-l-2 border-[#ffb627] bg-[#f6f3ec] p-6 sm:flex-row sm:items-center sm:p-8">
+              <div className="w-[184px] shrink-0 border border-black/10 bg-white p-6">
                 <img
                   alt="American Advertising Awards (ADDY Awards)"
                   className="h-auto w-full object-contain"
@@ -539,7 +539,7 @@ export default function Home() {
                 <h3 className="text-2xl font-bold tracking-[-0.03em] sm:text-3xl">
                   Award Winning Video Production
                 </h3>
-                <p className="mt-3 max-w-2xl text-sm leading-6 text-white/60">
+                <p className="mt-3 max-w-2xl text-sm leading-6 text-black/72">
                   Watch these 2024 and 2023 award-winning videos from Vendetta
                   our video team.
                 </p>
@@ -558,14 +558,14 @@ export default function Home() {
             ].map(group => (
               <div key={group.id} data-work-group={group.id}>
                 {group.id === "other" && (
-                  <h3 className="mb-8 mt-16 border-t border-white/15 pt-10 text-2xl font-bold tracking-[-0.03em] sm:text-3xl">
+                  <h3 className="mb-8 mt-16 border-t border-black/15 pt-10 text-2xl font-bold tracking-[-0.03em] sm:text-3xl">
                     More Video Examples
                   </h3>
                 )}
-                <div className="grid grid-cols-1 gap-px bg-white/15 lg:grid-cols-2">
+                <div className="grid grid-cols-1 gap-px bg-black/10 lg:grid-cols-2">
                   {group.projects.map(project => (
                     <article
-                      className="group min-w-0 bg-[#080808]"
+                      className="group min-w-0 bg-white"
                       key={project.videoId}
                     >
                       <div className="relative aspect-video overflow-hidden bg-black">
@@ -602,10 +602,10 @@ export default function Home() {
                         )}
                       </div>
                       <div
-                        className={`border border-t-0 border-white/15 ${project.award ? "p-4 sm:p-8 lg:p-6" : "p-6 sm:p-8"}`}
+                        className={`border border-t-0 border-black/15 ${project.award ? "p-4 sm:p-8 lg:p-6" : "p-6 sm:p-8"}`}
                       >
                         <div
-                          className={`flex items-center justify-between font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-[#ffb627] ${project.award ? "border-b border-white/15 pb-5 sm:pb-7" : ""}`}
+                          className={`flex items-center justify-between font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-[#8a5d00] ${project.award ? "border-b border-black/15 pb-5 sm:pb-7" : ""}`}
                         >
                           <span>Project {project.number}</span>
                           <span>Watch the work</span>
@@ -626,11 +626,11 @@ export default function Home() {
                             >
                               {project.project}
                             </h3>
-                            <p className="mt-4 text-xs font-bold uppercase tracking-[0.18em] text-white/48">
+                            <p className="mt-4 text-xs font-bold uppercase tracking-[0.18em] text-black/60">
                               Client / {project.client}
                             </p>
                             {project.productionCredit && (
-                              <p className="mt-3 text-xs font-bold uppercase tracking-[0.18em] text-white/48">
+                              <p className="mt-3 text-xs font-bold uppercase tracking-[0.18em] text-black/60">
                                 Production / {project.productionCredit}
                               </p>
                             )}
@@ -640,8 +640,8 @@ export default function Home() {
                               data-award-panel={project.award.ribbonColor}
                               className={`flex w-[4.5rem] shrink-0 flex-col items-center rounded-xl border px-2 py-3 text-center sm:w-40 sm:px-4 sm:py-5 lg:w-24 lg:px-2 lg:py-3 ${
                                 project.award.ribbonColor === "gold"
-                                  ? "border-[#ffb627]/35 bg-[#ffb627]/8 text-[#ffb627]"
-                                  : "border-[#7ab5ff]/35 bg-[#7ab5ff]/8 text-[#7ab5ff]"
+                                  ? "border-[#ffb627]/50 bg-[#ffb627]/10 text-[#8a5d00]"
+                                  : "border-[#2a63c4]/30 bg-[#2a63c4]/5 text-[#1f4f9e]"
                               }`}
                             >
                               <img
@@ -666,10 +666,10 @@ export default function Home() {
                             </div>
                           )}
                         </div>
-                        <div className="mt-8 grid gap-px bg-white/15 sm:grid-cols-2">
+                        <div className="mt-8 grid gap-px bg-black/10 sm:grid-cols-2">
                           {project.facts.map(fact => (
                             <div
-                              className="bg-[#111] px-5 py-5 text-sm font-bold leading-6 text-white/82"
+                              className="bg-[#f6f3ec] px-5 py-5 text-sm font-bold leading-6 text-black/72"
                               key={fact}
                             >
                               <span className="mb-3 block h-1 w-8 bg-[#ffb627]" />
@@ -684,7 +684,7 @@ export default function Home() {
               </div>
             ))}
 
-            <p className="mt-7 max-w-4xl text-xs leading-6 text-white/35">
+            <p className="mt-7 max-w-4xl text-xs leading-6 text-black/47">
               Performance figures reflect reported results across the projects
               shown. Past performance does not guarantee future views, reach,
               leads, attendance, or revenue.
@@ -702,28 +702,28 @@ export default function Home() {
                   From story
                   <br />
                   to{" "}
-                  <span className="font-serif normal-case text-[#ffb627]">
+                  <span className="font-serif normal-case text-[#b87a00]">
                     system.
                   </span>
                 </h2>
-                <p className="mt-7 max-w-sm text-base leading-7 text-white/50">
+                <p className="mt-7 max-w-sm text-base leading-7 text-black/62">
                   A deliberate six-stage content-to-customer system that keeps
                   the story, customer path, and next round connected.
                 </p>
               </div>
-              <div className="border-t border-white/15">
+              <div className="border-t border-black/15">
                 {process.map(([number, title, copy]) => (
                   <article
-                    className="group grid gap-5 border-b border-white/15 py-8 sm:grid-cols-[70px_180px_1fr] sm:items-start sm:py-10"
+                    className="group grid gap-5 border-b border-black/15 py-8 sm:grid-cols-[70px_180px_1fr] sm:items-start sm:py-10"
                     key={number}
                   >
-                    <span className="font-mono text-xs text-[#ffb627]">
+                    <span className="font-mono text-xs text-[#8a5d00]">
                       {number}
                     </span>
-                    <h3 className="text-3xl font-bold tracking-[-0.04em] transition-colors group-hover:text-[#ffb627]">
+                    <h3 className="text-3xl font-bold tracking-[-0.04em] transition-colors group-hover:text-[#b87a00]">
                       {title}
                     </h3>
-                    <p className="max-w-lg text-sm leading-6 text-white/50 sm:ml-auto">
+                    <p className="max-w-lg text-sm leading-6 text-black/62 sm:ml-auto">
                       {copy}
                     </p>
                   </article>
@@ -734,26 +734,26 @@ export default function Home() {
         </section>
 
         <section className="container pb-24 sm:pb-32">
-          <div className="relative overflow-hidden border border-white/15">
+          <div className="relative overflow-hidden border border-black/15">
             <img
               alt="Producer and client reviewing a finished production"
               className="absolute inset-0 h-full w-full object-cover"
               src={distribution}
             />
-            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,.97),rgba(0,0,0,.84)_52%,rgba(0,0,0,.28))]" />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,.97),rgba(255,255,255,.9)_50%,rgba(255,255,255,.2))]" />
             <div className="relative z-10 max-w-3xl px-7 py-24 sm:px-14 sm:py-32 lg:px-20">
               <SectionLabel>Beyond the final cut</SectionLabel>
               <h2 className="jp-section-heading font-display">
                 Beautiful content is only useful when it{" "}
-                <span className="text-[#ffb627]">gets seen.</span>
+                <span className="text-[#b87a00]">gets seen.</span>
               </h2>
-              <p className="mt-7 max-w-xl text-base leading-7 text-white/60">
+              <p className="mt-7 max-w-xl text-base leading-7 text-black/72">
                 We plan formats, channels, launch moments, customer paths, and
                 campaign extensions early, so production creates an asset
                 system, not one lonely video file.
               </p>
               <a
-                className="group mt-9 inline-flex items-center gap-3 bg-white px-6 py-4 text-[11px] font-extrabold uppercase tracking-[0.18em] text-black transition-colors hover:bg-[#ffb627]"
+                className="group mt-9 inline-flex items-center gap-3 bg-black px-6 py-4 text-[11px] font-extrabold uppercase tracking-[0.18em] text-white transition-colors hover:bg-[#ffb627] hover:text-black"
                 href="#project"
               >
                 Plan my content-to-customer system
@@ -789,7 +789,7 @@ export default function Home() {
                   and follow-up automations.
                 </p>
                 <a
-                  className="group mt-8 inline-flex items-center gap-3 border border-black px-6 py-4 text-[11px] font-extrabold uppercase tracking-[0.18em] transition-colors hover:bg-black hover:text-[#ffb627]"
+                  className="group mt-8 inline-flex items-center gap-3 border border-black px-6 py-4 text-[11px] font-extrabold uppercase tracking-[0.18em] transition-colors hover:bg-black hover:text-[#8a5d00]"
                   href="#project"
                 >
                   Plan my content-to-customer system
@@ -836,7 +836,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="border-y border-white/10 bg-[#0b0b0b] py-24 sm:py-32">
+        <section className="border-y border-black/10 bg-white py-24 sm:py-32">
           <div className="container">
             <div className="grid gap-14 lg:grid-cols-[1.1fr_.9fr] lg:gap-24">
               <div>
@@ -864,12 +864,12 @@ export default function Home() {
                     "Creative, promotion, offers, lead capture, and follow-up working together toward a clearer customer path.",
                   ],
                 ].map(([title, copy], index) => (
-                  <div className="border-t border-white/20 pt-5" key={title}>
-                    <span className="font-mono text-[10px] text-[#ffb627]">
+                  <div className="border-t border-black/15 pt-5" key={title}>
+                    <span className="font-mono text-[10px] text-[#8a5d00]">
                       0{index + 1}
                     </span>
                     <h3 className="mt-8 text-xl font-bold">{title}</h3>
-                    <p className="mt-3 text-sm leading-6 text-white/45">
+                    <p className="mt-3 text-sm leading-6 text-black/57">
                       {copy}
                     </p>
                   </div>
@@ -917,12 +917,12 @@ export default function Home() {
           className="relative overflow-hidden py-24 sm:py-32"
           id="project"
         >
-          <div className="absolute -right-36 top-8 h-[520px] w-[520px] rounded-full border border-[#ffb627]/10" />
-          <div className="absolute -right-20 top-24 h-[360px] w-[360px] rounded-full border border-[#ffb627]/10" />
+          <div className="absolute -right-36 top-8 h-[520px] w-[520px] rounded-full border border-[#ffb627]/35" />
+          <div className="absolute -right-20 top-24 h-[360px] w-[360px] rounded-full border border-[#ffb627]/35" />
           <img
             alt=""
             aria-hidden="true"
-            className="pointer-events-none absolute -right-10 top-20 w-[440px] opacity-[0.035]"
+            className="pointer-events-none absolute -right-10 top-20 w-[440px] opacity-[0.07]"
             src={logo}
           />
           <div className="container relative z-10 grid gap-14 lg:grid-cols-[.8fr_1.2fr] lg:gap-24">
@@ -931,22 +931,22 @@ export default function Home() {
               <h2 className="jp-section-heading font-display">
                 Make the thing they cannot scroll past.
               </h2>
-              <p className="mt-8 max-w-md text-lg leading-8 text-white/55">
+              <p className="mt-8 max-w-md text-lg leading-8 text-black/67">
                 Tell us what you need to create, who needs to see it, and what
                 should happen after they do. We will help map the production,
                 promotion, customer path, and next practical step around that
                 goal.
               </p>
-              <p className="mt-6 max-w-md border-l border-[#ffb627]/60 pl-4 text-sm leading-6 text-white/62">
-                <span className="font-bold text-[#ffb627]">
+              <p className="mt-6 max-w-md border-l border-[#ffb627]/60 pl-4 text-sm leading-6 text-black/72">
+                <span className="font-bold text-[#8a5d00]">
                   Start with a complimentary 2027 content and marketing strategy
                   session.
                 </span>{" "}
                 For deeper planning, Marketing Strategy Advisory is available as
                 a focused paid working engagement.
               </p>
-              <div className="mt-12 flex items-center gap-4 border-t border-white/15 pt-7 text-xs font-bold uppercase tracking-[0.18em] text-white/55">
-                <Clapperboard className="text-[#ffb627]" size={22} />
+              <div className="mt-12 flex items-center gap-4 border-t border-black/15 pt-7 text-xs font-bold uppercase tracking-[0.18em] text-black/67">
+                <Clapperboard className="text-[#8a5d00]" size={22} />
                 Corpus Christi · Coastal Bend · Beyond
               </div>
             </div>
@@ -955,9 +955,9 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t border-white/10 bg-black py-10">
+      <footer className="border-t border-black/10 bg-[#f1eee7] py-10">
         <div className="container">
-          <div className="grid gap-10 border-b border-white/10 pb-10 md:grid-cols-[1fr_auto] md:items-end">
+          <div className="grid gap-10 border-b border-black/10 pb-10 md:grid-cols-[1fr_auto] md:items-end">
             <div>
               <img
                 alt="Jeristotle Productions"
@@ -966,12 +966,12 @@ export default function Home() {
               />
               <p className="mt-5 max-w-md font-display text-4xl uppercase leading-[0.9] tracking-[-0.04em]">
                 Movie-level{" "}
-                <span className="text-[#ffb627]">content production</span> for
+                <span className="text-[#b87a00]">content production</span> for
                 small businesses.
               </p>
             </div>
             <a
-              className="group flex items-center gap-4 text-xs font-extrabold uppercase tracking-[0.2em] text-[#ffb627]"
+              className="group flex items-center gap-4 text-xs font-extrabold uppercase tracking-[0.2em] text-[#8a5d00]"
               href="#project"
             >
               Schedule a consultation
@@ -980,10 +980,10 @@ export default function Home() {
               </span>
             </a>
           </div>
-          <div className="flex flex-col gap-4 pt-7 text-[10px] font-bold uppercase tracking-[0.2em] text-white/35 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-4 pt-7 text-[10px] font-bold uppercase tracking-[0.2em] text-black/47 sm:flex-row sm:items-center sm:justify-between">
             <p>© {new Date().getFullYear()} Jeristotle Productions</p>
             <a
-              className="w-fit text-white/65 transition-colors hover:text-[#ffb627] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ffb627]"
+              className="w-fit text-black/72 transition-colors hover:text-[#8a5d00] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ffb627]"
               href="/privacy-policy"
             >
               Privacy Policy

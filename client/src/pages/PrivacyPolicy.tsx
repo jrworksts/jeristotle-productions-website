@@ -114,14 +114,14 @@ export default function PrivacyPolicy() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white">
+    <div className="min-h-screen bg-[#fbf9f4] text-[#0b0b0b]">
       <a
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-[#ffb627] focus:p-3 focus:text-black"
         href="#privacy-content"
       >
         Skip to privacy policy
       </a>
-      <header className="border-b border-white/10">
+      <header className="border-b border-black/10">
         <div className="container flex min-h-[84px] items-center justify-between gap-4 py-4">
           <a href="/" aria-label="Jeristotle Productions home">
             <img
@@ -132,7 +132,7 @@ export default function PrivacyPolicy() {
           </a>
           <a
             href="/"
-            className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-[#ffb627] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ffb627]"
+            className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-[#8a5d00] hover:text-black focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ffb627]"
           >
             <ArrowLeft size={16} aria-hidden="true" /> Back to website
           </a>
@@ -142,18 +142,18 @@ export default function PrivacyPolicy() {
         id="privacy-content"
         className="container pb-20 pt-14 sm:pb-28 sm:pt-20"
       >
-        <div className="border-b border-white/15 pb-10 sm:pb-14">
-          <p className="text-[10px] font-bold uppercase tracking-[0.26em] text-[#ffb627]">
+        <div className="border-b border-black/15 pb-10 sm:pb-14">
+          <p className="text-[10px] font-bold uppercase tracking-[0.26em] text-[#8a5d00]">
             Jeristotle Productions / Your information
           </p>
           <h1 className="mt-6 font-display text-[clamp(3rem,8vw,6.5rem)] uppercase leading-[0.94] tracking-[-0.04em]">
-            Privacy <span className="text-[#ffb627]">Policy</span>
+            Privacy <span className="text-[#8a5d00]">Policy</span>
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-white/70">
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-black/72">
             How we handle information when you visit our website, contact us, or
             explore working with our Corpus Christi content and marketing team.
           </p>
-          <p className="mt-6 text-xs text-white/60">
+          <p className="mt-6 text-xs text-black/72">
             Last updated: November 4, 2026
           </p>
         </div>
@@ -162,7 +162,7 @@ export default function PrivacyPolicy() {
             aria-label="Privacy policy sections"
             className="self-start lg:sticky lg:top-8"
           >
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.16em] text-[#ffb627]">
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.16em] text-[#8a5d00]">
               On this page
             </p>
             <ol className="grid gap-3">
@@ -170,9 +170,9 @@ export default function PrivacyPolicy() {
                 <li key={section.id}>
                   <a
                     href={`#${section.id}`}
-                    className="flex gap-3 text-sm leading-6 text-white/65 hover:text-[#ffb627] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ffb627]"
+                    className="flex gap-3 text-sm leading-6 text-black/72 hover:text-[#8a5d00] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ffb627]"
                   >
-                    <span className="font-mono text-xs text-[#ffb627]">
+                    <span className="font-mono text-xs text-[#8a5d00]">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     {section.title}
@@ -182,7 +182,7 @@ export default function PrivacyPolicy() {
               <li>
                 <a
                   href="#privacy-contact"
-                  className="text-sm leading-6 text-[#ffb627] hover:text-white"
+                  className="text-sm leading-6 text-[#8a5d00] hover:text-black"
                 >
                   Contact us
                 </a>
@@ -190,7 +190,7 @@ export default function PrivacyPolicy() {
             </ol>
           </nav>
           <article className="min-w-0 max-w-3xl">
-            <p className="mb-10 text-base leading-8 text-white/75">
+            <p className="mb-10 text-base leading-8 text-black/72">
               In this policy, “we,” “us,” and “our” mean Jeristotle Productions,
               based in Corpus Christi, Texas. This policy covers
               jeristotleproductions.com and our related business communications.
@@ -199,24 +199,24 @@ export default function PrivacyPolicy() {
               <section
                 id={section.id}
                 key={section.id}
-                className="scroll-mt-8 border-t border-white/10 py-8 first:border-t-0 first:pt-0"
+                className="scroll-mt-8 border-t border-black/10 py-8 first:border-t-0 first:pt-0"
               >
-                <h2 className="text-xl font-bold leading-8 text-white sm:text-2xl">
-                  <span className="mr-3 font-mono text-sm text-[#ffb627]">
+                <h2 className="text-xl font-bold leading-8 text-[#0b0b0b] sm:text-2xl">
+                  <span className="mr-3 font-mono text-sm text-[#8a5d00]">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   {section.title}
                 </h2>
-                <div className="mt-5 space-y-5 text-base leading-8 text-white/75">
+                <div className="mt-5 space-y-5 text-base leading-8 text-black/72">
                   {section.paragraphs.map(paragraph => (
                     <p key={paragraph}>{paragraph}</p>
                   ))}
                 </div>
                 {section.id === "cookies" && (
-                  <p className="mt-5 text-sm leading-7 text-white/65">
+                  <p className="mt-5 text-sm leading-7 text-black/72">
                     Provider information:{" "}
                     <a
-                      className="text-[#ffb627] underline underline-offset-4"
+                      className="text-[#8a5d00] underline underline-offset-4"
                       href="https://policies.google.com/privacy"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -225,7 +225,7 @@ export default function PrivacyPolicy() {
                     </a>{" "}
                     and{" "}
                     <a
-                      className="text-[#ffb627] underline underline-offset-4"
+                      className="text-[#8a5d00] underline underline-offset-4"
                       href="https://umami.is/docs"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -236,11 +236,11 @@ export default function PrivacyPolicy() {
                   </p>
                 )}
                 {section.id === "rights" && (
-                  <p className="mt-5 text-sm leading-7 text-white/65">
+                  <p className="mt-5 text-sm leading-7 text-black/72">
                     Texas residents can learn about applicable privacy laws and
                     complaint options from the{" "}
                     <a
-                      className="text-[#ffb627] underline underline-offset-4"
+                      className="text-[#8a5d00] underline underline-offset-4"
                       href="https://www.texasattorneygeneral.gov/consumer-protection/file-consumer-complaint/consumer-privacy-rights"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -257,7 +257,7 @@ export default function PrivacyPolicy() {
               className="mt-4 scroll-mt-8 border border-[#ffb627]/30 bg-[#ffb627]/5 p-6 sm:p-8"
             >
               <h2 className="text-2xl font-bold">Contact us about privacy</h2>
-              <p className="mt-4 text-base leading-8 text-white/75">
+              <p className="mt-4 text-base leading-8 text-black/72">
                 Jeremy Wells
                 <br />
                 Jeristotle Productions
@@ -265,7 +265,7 @@ export default function PrivacyPolicy() {
                 Corpus Christi, Texas
               </p>
               <a
-                className="mt-5 inline-flex max-w-full items-center gap-2 break-all text-base font-semibold text-[#ffb627] underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ffb627]"
+                className="mt-5 inline-flex max-w-full items-center gap-2 break-all text-base font-semibold text-[#8a5d00] underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ffb627]"
                 href={`mailto:${JERISTOTLE_EMAIL}?subject=Privacy%20request`}
               >
                 {JERISTOTLE_EMAIL}
@@ -279,17 +279,17 @@ export default function PrivacyPolicy() {
           </article>
         </div>
       </main>
-      <footer className="border-t border-white/10 bg-black py-8">
-        <div className="container flex flex-col gap-4 text-xs text-white/60 sm:flex-row sm:items-center sm:justify-between">
+      <footer className="border-t border-black/10 bg-black py-8">
+        <div className="container flex flex-col gap-4 text-xs text-black/72 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Jeristotle Productions</p>
           <nav aria-label="Footer navigation" className="flex flex-wrap gap-6">
-            <a href="/" className="hover:text-[#ffb627]">
+            <a href="/" className="hover:text-[#8a5d00]">
               Home
             </a>
             <a
               href="/privacy-policy"
               aria-current="page"
-              className="text-[#ffb627]"
+              className="text-[#8a5d00]"
             >
               Privacy Policy
             </a>

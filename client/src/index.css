@@ -41,24 +41,24 @@
 
 :root {
   --radius: 0.125rem;
-  --background: #050505;
-  --foreground: #f4f0e8;
-  --card: #0b0b0b;
-  --card-foreground: #f4f0e8;
-  --popover: #0b0b0b;
-  --popover-foreground: #f4f0e8;
+  --background: #fbf9f4;
+  --foreground: #0b0b0b;
+  --card: #ffffff;
+  --card-foreground: #0b0b0b;
+  --popover: #ffffff;
+  --popover-foreground: #0b0b0b;
   --primary: #ffb627;
   --primary-foreground: #080808;
-  --secondary: #171717;
-  --secondary-foreground: #f4f0e8;
-  --muted: #141414;
-  --muted-foreground: #a29f98;
+  --secondary: #f1eee7;
+  --secondary-foreground: #0b0b0b;
+  --muted: #f1eee7;
+  --muted-foreground: #5f5b54;
   --accent: #ffb627;
   --accent-foreground: #080808;
   --destructive: #e14932;
   --destructive-foreground: #ffffff;
-  --border: rgba(255, 255, 255, 0.14);
-  --input: rgba(255, 255, 255, 0.14);
+  --border: rgba(0, 0, 0, 0.12);
+  --input: rgba(0, 0, 0, 0.14);
   --ring: #ffb627;
   --sidebar: #090909;
   --sidebar-foreground: #f7f3e9;
@@ -75,7 +75,7 @@
 
 html {
   scroll-behavior: smooth;
-  background: #050505;
+  background: #fbf9f4;
 }
 
 body {
@@ -110,7 +110,7 @@ input:focus-visible,
 select:focus-visible,
 textarea:focus-visible,
 summary:focus-visible {
-  outline: 2px solid #ffb627;
+  outline: 2px solid #b87a00;
   outline-offset: 4px;
 }
 
@@ -150,7 +150,7 @@ summary:focus-visible {
 .nav-link {
   position: relative;
   padding-block: 1rem;
-  color: rgba(255, 255, 255, 0.58);
+  color: rgba(0, 0, 0, 0.6);
   font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.18em;
@@ -171,7 +171,7 @@ summary:focus-visible {
 }
 
 .nav-link:hover {
-  color: white;
+  color: #0b0b0b;
 }
 
 .nav-link:hover::after {
@@ -185,7 +185,7 @@ summary:focus-visible {
 }
 
 .form-field > span {
-  color: rgba(255, 255, 255, 0.48);
+  color: rgba(0, 0, 0, 0.58);
   font-size: 0.63rem;
   font-weight: 800;
   letter-spacing: 0.19em;
@@ -193,12 +193,12 @@ summary:focus-visible {
 }
 
 .form-field select {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 .form-field option {
-  background: #0b0b0b;
-  color: white;
+  background: #ffffff;
+  color: #0b0b0b;
 }
 
 .text-outline-dark {
